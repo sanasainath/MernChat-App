@@ -1,0 +1,10 @@
+/* Define the default padding */
+
+  
+  /* Apply different padding when screen width is less than 600px */
+  @media (max-width: 600px) {
+    .left-side-chat {
+      padding: -20rem; /* Apply p-1 when screen width is less than 600px */
+    }
+  }
+  

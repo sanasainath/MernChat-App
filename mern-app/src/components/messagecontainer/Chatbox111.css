@@ -1,0 +1,10 @@
+/* Add this to your CSS file */
+
+@media (max-width: 910px) {
+    .chatbox {
+      min-width: 10px !important;
+      width: 10px !important;
+      background-color: red;
+    }
+  }
+  
