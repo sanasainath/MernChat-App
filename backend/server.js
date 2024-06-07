@@ -4,14 +4,14 @@ dotenv.config({ path: './config.env' });
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const cors = require('cors');
+
 
 const signup = require('./router/signup');
 const signin = require('./router/signin');
 const messagechat = require('./router/messagechat');
 const groupChat = require('./router/groupmessages');
 
-app.use(cors());
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../mern-app/dddd'))); // Serve static files
 
