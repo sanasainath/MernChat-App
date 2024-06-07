@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const backendUrl = axios.create({
-  baseURL: 'https://mernchat-app-111.onrender.com/api', // Your backend URL
+  baseURL: 'https://mernchat-app-prod-va3g.onrender.com/api', // Your backend URL
   // Other axios configurations (if any)
 });
 
