@@ -13,7 +13,8 @@ const groupChat = require('./router/groupmessages');
 
 
 app.use(express.json());
-app.use(cors())
+app.use(cors({ origin: 'https://mernchat-app-dev.onrender.com', credentials: true })); // Enable CORS
+
 app.use(express.static(path.join(__dirname, '../mern-app/dddd'))); // Serve static files
 
 app.use('/public/images', express.static(path.join(__dirname, 'public/images')));
