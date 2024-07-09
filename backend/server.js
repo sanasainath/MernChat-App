@@ -12,7 +12,12 @@ const signin = require('./router/signin');
 const messagechat = require('./router/messagechat');
 const groupChat = require('./router/groupmessages');
 
-app.use(cors());
+app.use(cors({
+  origin: ["https://chat-app-frontend-roan.vercel.app", "http://localhost:3000"], // Frontend URLs
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../mern-app/dist'))); // Serve static files
 
