@@ -6,17 +6,15 @@ const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
 
+
 const signup = require('./router/signup');
 const signin = require('./router/signin');
 const messagechat = require('./router/messagechat');
 const groupChat = require('./router/groupmessages');
-app.use(cors({
-  origin: 'http://localhost:3000', // Replace with your frontend domain
-  credentials: true, // Allow cookies to be sent
-}));
 
+app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../mern-app/dddd'))); // Serve static files
+app.use(express.static(path.join(__dirname, '../mern-app/dist'))); // Serve static files
 
 app.use('/public/images', express.static(path.join(__dirname, 'public/images')));
 
@@ -26,8 +24,8 @@ app.use('/api', messagechat);
 app.use('/api', groupChat);
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, '../mern-app/dddd/index.html'));
-});
+  res.sendFile(path.join(__dirname, "mern-app","dist","index.html"));
+}); 
 
 // MongoDB connection
 mongoose.connect(process.env.CONN_STR, {
@@ -47,6 +45,6 @@ mongoose.connect(process.env.CONN_STR, {
 // Route to check if the server is running
 app.get('/', (req, res) => {
   res.status(200).json({
-    message: "Server is running"
+    message: "Server is run"
   });
 });

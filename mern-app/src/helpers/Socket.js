@@ -24,7 +24,7 @@ export const SocketContextProvider = ({ children }) => {
       if (tokenauth) {
           const decoded = jwtDecode(tokenauth);
         //   console.log("decooded token",decoded);
-          const socket = io("https://mernchat-app-dev.onrender.com", {
+          const socket = io("http://localhost:3001", {
               query: {
                   userId: decoded.userId,
               }
