@@ -3,16 +3,23 @@ const { Server } = require('socket.io');
 const http = require('http');
 const express = require('express');
 const { off } = require('process');
+const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000"],
-    methods: ["GET", "POST"]
+    origin: ["https://chat-app-frontend-roan.vercel.app", "http://localhost:3000"],
+    methods: ["GET", "POST"],
+    credentials: true
   }
 });
 
+app.use(cors({
+  origin: ["https://chat-app-frontend-roan.vercel.app", "http://localhost:3000"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 const userSocket = {}; // Mapping of user ID to socket ID
 
 const emailToSocketIdMap=new Map();
